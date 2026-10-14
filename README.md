@@ -17,10 +17,9 @@ graceful `SKIP` notes per phase — the loop still completes (see
 ## Install
 
 ```bash
-npx skills@latest add <repo>
+npx skills@latest add pokeleomon/webpage-design-toolkit
 ```
 
-Replace `<repo>` with this repo's `owner/name` (or full Git URL) when public.
 Re-verify upstream `--skill` names against each repo's current docs before
 installing optionals. Optional upstream skills referenced by the kit (install
 only what the locked direction needs):
@@ -37,12 +36,12 @@ npx skills@latest add vercel-labs/agent-skills --skill web-design-guidelines
 
 | Engine | Install | Notes |
 |---|---|---|
-| Claude | Claude plugin via `.claude-plugin/plugin.json` (`skills: ["./skills/webpage-design"]`), or `npx skills@latest add <repo> -a claude-code` | Slash `/webpage-design` + model-invoked. Manual copy: repo `skills/webpage-design/` → `<project>/.claude/skills/webpage-design/` |
-| Codex | Codex marketplace entry, or `npx skills@latest add <repo> -a codex` | Manual copy: repo `skills/webpage-design/` → `<project>/.agents/skills/webpage-design/` |
-| Cursor | `npx skills@latest add <repo> -a cursor` | Manual copy: repo `skills/webpage-design/` → `<project>/.agents/skills/webpage-design/` (or Cursor skills dir) |
-| Copilot | `npx skills@latest add <repo> -a copilot` | Manual copy per Copilot skills docs |
-| OpenCode | `npx skills@latest add <repo> -a opencode` | Manual copy: repo `skills/webpage-design/` → `<project>/.opencode/` skills path as applicable |
-| Gemini / other SKILL.md agents | `npx skills@latest add <repo> -a <agent>` or manual copy | Any engine that reads SKILL.md (`name:` + `description:` frontmatter) works; no API key needed for the core loop |
+| Claude | Claude plugin via `.claude-plugin/plugin.json` (`skills: ["./skills/webpage-design"]`), or `npx skills@latest add pokeleomon/webpage-design-toolkit -a claude-code` | Slash `/webpage-design` + model-invoked. Manual copy: repo `skills/webpage-design/` → `<project>/.claude/skills/webpage-design/` |
+| Codex | Codex marketplace entry, or `npx skills@latest add pokeleomon/webpage-design-toolkit -a codex` | Manual copy: repo `skills/webpage-design/` → `<project>/.agents/skills/webpage-design/` |
+| Cursor | `npx skills@latest add pokeleomon/webpage-design-toolkit -a cursor` | Manual copy: repo `skills/webpage-design/` → `<project>/.agents/skills/webpage-design/` (or Cursor skills dir) |
+| Copilot | `npx skills@latest add pokeleomon/webpage-design-toolkit -a copilot` | Manual copy per Copilot skills docs |
+| OpenCode | `npx skills@latest add pokeleomon/webpage-design-toolkit -a opencode` | Manual copy: repo `skills/webpage-design/` → `<project>/.opencode/` skills path as applicable |
+| Gemini / other SKILL.md agents | `npx skills@latest add pokeleomon/webpage-design-toolkit -a <agent>` or manual copy | Any engine that reads SKILL.md (`name:` + `description:` frontmatter) works; no API key needed for the core loop |
 | No-Superpowers projects | Same commands — no Superpowers install needed | Pilot passes with SKIPs allowed (Playwright/image-gen/Figma absent) as long as ask → playback → plan → build → audit notes → safety report all complete |
 
 Manual-copy paths summary: `.claude/skills/` (Claude), `.agents/skills/`
