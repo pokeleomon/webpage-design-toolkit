@@ -21,16 +21,16 @@ npx skills@latest add <repo>
 ```
 
 Replace `<repo>` with this repo's `owner/name` (or full Git URL) when public.
-Re-verify upstream `--skill` names before installing optionals (names shifted
-Apr 2026). Optional upstream skills referenced by the kit (install only what
-the locked direction needs):
+Re-verify upstream `--skill` names against each repo's current docs before
+installing optionals. Optional upstream skills referenced by the kit (install
+only what the locked direction needs):
 
 ```bash
-npx skills add Leonxlnx/taste-skill
-npx skills add Leonxlnx/taste-skill --skill image-to-code
-npx skills add emilkowalski/skill
-npx skills add pbakaus/impeccable
-npx skills add vercel-labs/agent-skills --skill web-design-guidelines
+npx skills@latest add Leonxlnx/taste-skill
+npx skills@latest add Leonxlnx/taste-skill --skill image-to-code
+npx skills@latest add emilkowalski/skill
+npx skills@latest add pbakaus/impeccable
+npx skills@latest add vercel-labs/agent-skills --skill web-design-guidelines
 ```
 
 ### Engine matrix
