@@ -207,3 +207,26 @@ links and usage limits: `references/VIBE-INDEX.md` (pinned
 6. Manus.im (manus.im): competitor output-quality benchmark showing
    what "done" website-builder quality looks like. Docs study only —
    no integration.
+
+## Safety
+
+Mandatory pre-ship audit. Run after the build (and after browser
+verify when it ran) — the page does not ship with open Blocking
+findings. This audit is a prompt + checklist, not legal advice; when
+a finding touches real legal exposure, tell the user to confirm with
+counsel.
+
+1. Six-risk prompt. Run this prompt verbatim against the built page:
+   "Audit my app for these 6 legal risks and fix them: add an age gate to signup,
+   self-host my fonts, turn off session replay (or add consent + input masking),
+   add an unsubscribe link and postal address to every marketing email, show renewal
+   terms right next to the subscribe button, and walk me through registering a DMCA agent."
+   Fix what it finds: age gate on signup, self-hosted fonts, session
+   replay off (or consent + input masking), unsubscribe link + postal
+   address in every marketing email, renewal terms right next to the
+   subscribe button, DMCA agent registration walkthrough.
+2. Twenty-item checklist: `references/SAFETY-CHECKLIST.md`. Audit
+   every item against the built page and its dependencies.
+3. Output: one `file:line` finding per issue plus the fix applied
+   or to apply. Label every finding Blocking (ship-stopper — zero
+   open to ship) or Advisory (should-fix — record why if deferred).
