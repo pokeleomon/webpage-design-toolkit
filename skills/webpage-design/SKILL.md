@@ -62,7 +62,8 @@ re-verify exact `--skill` names before installing.)
 2. Token start (VoltAgent/awesome-design-md). Copy one `DESIGN.md` from
    `references/DESIGN-PICKS.md` (shortlist pinned 2026-10-14) to the
    project root and build every color/type choice from its tokens. Do
-   not invent palette or type. Fallback: the alexpate list if the user
+   not invent palette or type. Fallback: the alexpate list
+   (https://github.com/alexpate/awesome-design-systems) if the user
    meant a systems list. Tokens only — brands remain owners; verify
    every font/image license before shipping.
    - Install: none (copy one file, `cp <pick>.md DESIGN.md`)
@@ -84,10 +85,10 @@ re-verify exact `--skill` names before installing.)
    - Invoke: `/impeccable audit`, then `/impeccable polish`
    - SKIP: `SKIP: impeccable absent — hand audit against the
      anti-slop bans below. Continuing without hard-fail.`
-5. Guidelines audit (vercel-labs/web-design-guidelines). Fetch the
-   latest rules at runtime and audit the built page against them. Pin
-   the install command, never a rule snapshot.
-   - Install: `npx skills add vercel-labs/web-design-guidelines`
+5. Guidelines audit (`web-design-guidelines`, vercel-labs/agent-skills).
+   Fetch the latest rules at runtime and audit the built page against
+   them. Pin the install command, never a rule snapshot.
+   - Install: `npx skills add vercel-labs/agent-skills --skill web-design-guidelines`
    - Invoke: `web-design-guidelines`
    - SKIP: `SKIP: guidelines unreachable — auditing against the
      root DESIGN.md do's and don'ts. Continuing without hard-fail.`
@@ -106,25 +107,34 @@ the project stack first, then adapts: React + Tailwind + shadcn
 examples below are defaults (detect-then-adapt). On a non-React stack,
 map every shelf part to its local equivalent — never force React.
 
-1. Image pipeline (image-to-code skill, for visually important
-   sections only: heroes, marketing bands, gallery moments). Generate
+1. Image pipeline (image-to-code skill in Leonxlnx/taste-skill, for
+   visually important sections only: heroes, marketing bands, gallery
+   moments). Generate
    one large section-specific reference image with the user's chosen
    image generator → analyze its type/spacing/proportions → code the
    section to match. State the pipeline in the output
    ("reference-image → analysis → code"). Dense dashboards and data UI
    take the minimalist path instead: no reference image, DESIGN.md
    tokens plus minimal chrome.
-   - Install: `npx skills add image-to-code-skill` (needs a
-     user-chosen image generator alongside it)
-   - Invoke: `image-to-code`
+   - Install package `Leonxlnx/taste-skill`, skill `image-to-code`:
+     `npx skills add Leonxlnx/taste-skill --skill image-to-code`
+     (needs a user-chosen image generator alongside it)
+   - Invoke skill: `image-to-code`
    - SKIP: `SKIP: no image generator — minimalist path for this
      section (tokens + type, no reference image).`
 2. Figma path (Figma MCP, only when the user links a Figma file).
    Pull the selection/node-tree, variables, components, and Code
    Connect output. Figma tokens override the root DESIGN.md only where
    Figma is newer; otherwise DESIGN.md wins.
-   - Install: add the Figma MCP server per its docs (needs Figma
-     access/seat)
+   - Install (remote Figma MCP server; needs Figma access/seat, then
+     authenticate via `/mcp` → Authenticate):
+     `claude plugin install figma@claude-plugins-official`
+     (recommended — includes MCP settings + workflow skills), or
+     manually: `claude mcp add --transport http figma https://mcp.figma.com/mcp`.
+     Other agents: add an MCP server pointing at
+     `https://mcp.figma.com/mcp`
+     (`"mcpServers": {"figma": {"url": "https://mcp.figma.com/mcp"}}`).
+     Docs: https://developers.figma.com/docs/figma-mcp-server/remote-server-installation
    - Invoke: pull selection, variables, components, Code Connect
    - SKIP: `SKIP: no Figma link or seat — DESIGN.md tokens govern.`
 3. Browser verify (playwright-cli, needs Node 18+ and Chromium).
