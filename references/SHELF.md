@@ -40,16 +40,22 @@ shelf part fits — record why in the plan. React examples are defaults
 - Upstream: Refero Styles DESIGN.md examples + screens (beta free;
   full MCP is Pro — document which tier was used).
 - Use: copy the pattern, rebuild to root DESIGN.md tokens.
-- Registry/MCP commands: per Refero docs at build time.
+- Registry/MCP: no shadcn registry form on record — copy-pattern is
+  the only pinned path. At build time check refero.design /
+  styles.refero.design for any registry/MCP invocation and record what
+  was used.
 
 ### 6. Cult UI (cult) — animated shadcn extensions
 
 - Upstream: Cult UI (core free; Pro paid — keep the separation, never
   ship Pro parts without a license).
-- Install a part: `npx shadcn add <cult registry URL>` for the named
-  part only; shadcn MCP where available.
+- Install a part: `npx shadcn add <cult registry URL>` (replace with
+  the named part's registry URL from upstream docs at build time) for
+  the named part only; shadcn MCP where available.
 
 ### 7. UI Watermelon (watermelon) — copy-paste blocks
 
 - Upstream: UI Watermelon (MIT).
-- Install: `npx shadcn add <registry URL>` plus its llms.txt context.
+- Install: `npx shadcn add <registry URL>` (replace with the named
+  part's registry URL from upstream docs at build time) plus its
+  llms.txt context.
