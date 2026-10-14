@@ -23,6 +23,11 @@ export function validateKit(rootDir) {
     if (!md.includes('description:')) {
       errors.push('SKILL.md missing frontmatter "description:"');
     }
+    for (const h of ['## Ask', '## Playback', '## Plan-gate', '## Boundaries', '## Memory']) {
+      if (!md.includes(h)) {
+        errors.push(`SKILL.md missing core heading "${h}"`);
+      }
+    }
   }
 
   if (!fs.existsSync(path.join(root, 'README.md'))) {
