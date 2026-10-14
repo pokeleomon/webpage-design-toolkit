@@ -21,6 +21,11 @@ or to apply. Label every finding:
 - Advisory — should-fix. May ship with it open only if the report
   records why it was deferred.
 
+Gate rule: an item that escalated counts as Blocking. For every item
+with an `Escalates to Blocking when:` line, the report must record
+which branch applied (base Advisory or escalated Blocking) and why,
+so the gate resolves without branching logic at ship time.
+
 ## The 20 items
 
 ### 1. Privacy policy (Blocking)
@@ -37,8 +42,9 @@ or to apply. Label every finding:
 - Fix: add/update the terms page and link it; flag anything the
   terms promise that the page does not actually do.
 
-### 3. Refund policy (Advisory; Blocking if the page sells anything)
+### 3. Refund policy (Advisory)
 
+- Escalates to Blocking when: the page takes payment or shows prices.
 - Check: if the page takes payment, a refund policy exists, is
   linked near purchase, and states terms before the buy button.
 - Fix: add the policy and link it at purchase; no page selling
@@ -58,7 +64,7 @@ or to apply. Label every finding:
 - Fix: add the banner with accept/reject granularity; default to
   essential-only before consent.
 
-### 6. Check form consents (Blocking)
+### 6. Form consents (Blocking)
 
 - Check: every form states what the data is used for and gets
   explicit opt-in for marketing; no pre-ticked consent boxes.
@@ -72,8 +78,10 @@ or to apply. Label every finding:
 - Fix: delete unneeded fields and collectors; justify each
   remaining field in the audit report.
 
-### 8. Audit third-party SDKs (Advisory; Blocking if a vendor SDK handles personal data without a data agreement)
+### 8. Audit third-party SDKs (Advisory)
 
+- Escalates to Blocking when: any vendor SDK handles personal data
+  without a data agreement.
 - Check: list every third-party SDK (analytics, replay, fonts,
   chat, ads), what data each receives, and whether its terms cover
   that use.
@@ -117,7 +125,8 @@ or to apply. Label every finding:
 
 - Check: body text meets WCAG AA contrast against its background;
   large text, icons, and focus states checked too.
-- Fix: adjust tokens in the root DESIGN.md until ratios pass;
+- Fix: adjust the theme tokens / CSS until ratios pass (e.g. the
+  root `DESIGN.md` tokens where that file exists);
   re-verify in a real browser where possible.
 
 ### 15. Keyboard navigation (Blocking)
@@ -130,6 +139,9 @@ or to apply. Label every finding:
 
 ### 16. Add business details (Advisory)
 
+- Escalates to Blocking when: the page sells goods/services or the
+  operating jurisdiction requires a published business identity
+  (e.g. imprint duty).
 - Check: the legal business name, contact path, and jurisdiction
   appear where users expect them (footer, contact, legal pages).
 - Fix: add the missing details; keep them identical everywhere.

@@ -221,6 +221,8 @@ counsel.
    self-host my fonts, turn off session replay (or add consent + input masking),
    add an unsubscribe link and postal address to every marketing email, show renewal
    terms right next to the subscribe button, and walk me through registering a DMCA agent."
+   (Canonical copy lives in `references/SAFETY-CHECKLIST.md`; never
+   reword it — if it ever changes, update both copies together.)
    Fix what it finds: age gate on signup, self-hosted fonts, session
    replay off (or consent + input masking), unsubscribe link + postal
    address in every marketing email, renewal terms right next to the
@@ -230,3 +232,5 @@ counsel.
 3. Output: one `file:line` finding per issue plus the fix applied
    or to apply. Label every finding Blocking (ship-stopper — zero
    open to ship) or Advisory (should-fix — record why if deferred).
+   For escalatable items, record which branch applied per the
+   checklist's `Escalates to Blocking when:` lines.
