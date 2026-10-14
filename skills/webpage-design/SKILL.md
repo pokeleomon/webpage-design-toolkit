@@ -147,3 +147,63 @@ map every shelf part to its local equivalent — never force React.
      `screenshot`, fix, re-verify
    - SKIP: `SKIP: Playwright/Chromium absent — static audit notes
      only, no screenshots/traces. Loop still completes.`
+
+## Parts
+
+Shelf allow-list: prefer a shelf part over custom code when it matches
+the locked direction. React + Tailwind + shadcn examples below are
+defaults (detect-then-adapt): on a non-React stack, map every part to
+its local equivalent — never force React. Full pins, install commands,
+and license notes: `references/SHELF.md` (pinned 2026-10-14).
+
+1. Moment components.
+   - 3D heroes/viewers: react-three-fiber (+ drei).
+     Install: `npm i three @react-three/fiber @react-three/drei`.
+     Use for one hero or viewer moment, not whole-page 3D.
+   - Glass nav/cards: liquid-glass, pinned to
+     `rdev/liquid-glass-react`. Note: Safari/Firefox rendering is
+     partial — ship a fallback (plain blur/translucency CSS) and verify
+     in a real browser before shipping.
+     Install: follow the pinned fork's README install.
+   - Animated gradient heroes: Shadergradient (no hand-written GLSL).
+     Install: `npm i @shadergradient/react`.
+   - Liquid Logo (collidingScopes): pre-render asset tool only, not a
+     runtime component. Render the logo animation out, ship the frames
+     or video as a static asset; never add it as a page dependency.
+2. System components.
+   - Refero Styles (refero): DESIGN.md examples + screens for section
+     patterns (beta free; full MCP is Pro — document which tier was
+     used). Copy the pattern, rebuild to root DESIGN.md tokens.
+   - Cult UI (cult): animated shadcn extensions via the registry +
+     shadcn MCP. Install a part: `npx shadcn add <cult registry URL>`
+     for the named part only.
+   - UI Watermelon (watermelon): copy-paste blocks via
+     `npx shadcn add <registry URL>` plus its llms.txt context.
+3. Prefer-shelf rule: when a shelf part matches the direction, use it
+   instead of writing a custom component. Custom code earns its place
+   only when no shelf part fits — record why in the plan.
+
+## Vibe
+
+Naming + grounding references, never asset harvesting: link-out plus
+names/terms/aesthetic vocabulary only. No vendored screenshots, except
+Artvee public-domain downloads verified per-image. Full index with
+links and usage limits: `references/VIBE-INDEX.md` (pinned
+2026-10-14).
+
+1. CARI (cari): aesthetics lexicon for naming a direction
+   ("this page is <name> because ..."). Borrow the words, not the
+   images.
+2. Design Reviewed: print grids and type logic. Study the grid/type
+   reasoning, rebuild it in the page's own tokens.
+3. Artvee (artvee): public-domain art pool. Verify the license
+   per-image before use — verify each download's page, never assume the
+   whole pool is uniformly licensed — and cite the source.
+4. Gurafiku (gurafiku): Japanese layout/poster logic. Reference for
+   composition and density ideas; rebuild, don't lift.
+5. eMuseum: collection-grid / filter / object-page UX study
+   (Gallery Systems SaaS — proprietary, quote-only, reference only).
+   Study the interaction patterns; no copying of code or assets.
+6. Manus.im (manus.im): competitor output-quality benchmark showing
+   what "done" website-builder quality looks like. Docs study only —
+   no integration.
